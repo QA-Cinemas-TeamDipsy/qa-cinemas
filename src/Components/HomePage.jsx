@@ -1,3 +1,4 @@
+import About from './About/AboutPage';
 import NavigationBar from './NavigationBar';
 
 const HomePage = () => {
@@ -6,6 +7,7 @@ const HomePage = () => {
         <>
             <NavigationBar/>
             <h1>Homepage</h1>
+            <About/>
         </>
     )
 
