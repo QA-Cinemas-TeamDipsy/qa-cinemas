@@ -1,0 +1,49 @@
+[
+   
+    {
+        
+        "name": "Neel Dudhia",
+        "age": 23,
+        "jobTitle": "Digital Consultant",
+        "Hobbies": "Music+F1",
+        "twitter": "Twitter",
+        "email": "NDudhia@qa.com",
+        "img": "download.jpg"
+    },
+    {
+        "name": "Usman Sajid",
+        "age": 23,
+        "jobTitle": "Digital Consultant",
+        "Hobbies": "Gym, Coding",
+        "twitter": "@Twitter",
+        "email": "usman230@hotmail.co.uk",
+        "img": "download.jpg"
+    },
+    {
+        "name": "Zayne Jamil",
+        "age": 24,
+        "jobTitle": "Digital Consultant",
+        "Hobbies": "Gaming, Cooking",
+        "twitter": "@Twitter",
+        "email": "zjamil@qa.com",
+        "img": "download.jpg"
+    },
+    {
+        "name": "Philip Sephton",
+        "age": 26,
+        "jobTitle": "Digital Consultant",
+        "Hobbies": "Gaming, Tv",
+        "twitter/insta": "@Twitter",
+        "email": "PSephton@qa.com",
+        "img": "Put a photo in team photos"
+    },
+    {
+        "name": "Lamarr Redhead-Davis",
+        "age": 23,
+        "jobTitle": "Digital Consultant",
+        "Hobbies": "Gaming, Reading",
+        "twitter": "@Twitter",
+        "email": "LRedhead-Davis@qa.com",
+        "img": "download.jpg"
+    }
+]
