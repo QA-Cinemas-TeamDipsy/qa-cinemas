@@ -1,4 +1,4 @@
-import { Carousel, Image } from 'react-bootstrap';
+import { Carousel, Image, Row, Col, Button, Container } from 'react-bootstrap';
 import "./Banner.css";
 
 const Banner = (props) => {
@@ -10,15 +10,41 @@ const Banner = (props) => {
             {
                 movies.map((movie) => (
                     <Carousel.Item>
-                        <Image src={movie.Poster} className="centreImage"></Image>
-                        <Carousel.Caption>
-                            <h3>{movie.Title}</h3>
-                            <p>{movie.Plot}</p>
-                        </Carousel.Caption>
+                        <Container>
+                            <Row>
+                                <Col sm>
+                                    <Image src={movie.Poster} />
+                                </Col>
+                                <Col sm >
+                                    <Carousel.Caption id="caption" >
+                                        <h3>{movie.Title}</h3>
+                                        <br />
+                                        <p>{movie.Plot}</p>
+                                    </Carousel.Caption>
+
+                                </Col>
+                                <Col className="align-items-center">
+                                <br/><br/><br/><br/><br/><br/><br/>
+                                    <Row className="justify-content-center">
+                                        <Button variant="outline-danger" >
+                                            View Info
+                                        </Button>
+                                    </Row>
+                                    <br/>
+                                    <Row className="justify-content-center ">
+                                        <Button variant="outline-danger" >
+                                            Book Tickets
+                                        </Button>
+                                    </Row>
+
+                                </Col>
+                            </Row>
+                        </Container>
                     </Carousel.Item>
+
                 ))
             }
-        </Carousel>
+        </Carousel >
     )
 
 }
