@@ -12,7 +12,7 @@ function App() {
 
     <Router>
       <NavigationBar />
-
+      <br />
       <Switch>
         <Route exact path="/">
           <HomePage />
@@ -22,7 +22,8 @@ function App() {
           <AboutPage />
         </Route>
       </Switch>
-    
+
+      <br />
       <Footer />
     </Router>
 

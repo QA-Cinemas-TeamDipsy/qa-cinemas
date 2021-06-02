@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Banner from "./Banner/Banner";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
+import MovieGrid from "./MovieGrid/MovieGrid";
 import axios from "axios";
 
 const HomePage = () => {
@@ -35,33 +36,11 @@ const HomePage = () => {
             {/* Movie Hero Section */}
             <Banner movies={movies}/>
 
-            {/* Movie Lists */}
-            <div>
-                <button>Whats on</button>
-                <button>Coming Soon</button>
+            {/* Movie Grid */}
+            {/* <Movie /> */}
+  
 
-                <Container>
-                    <Row>
-                        <Col>1 of 3</Col>
-                        <Col>2 of 3</Col>
-                        <Col>3 of 3</Col>
-                    </Row>
-                    <Row>
-                        <Col>1 of 3</Col>
-                        <Col>2 of 3</Col>
-                        <Col>3 of 3</Col>
-                    </Row>
-                    <Row>
-                        <Col>1 of 3</Col>
-                        <Col>2 of 3</Col>
-                        <Col>3 of 3</Col>
-                    </Row>
-                </Container>
-            </div>
-
-        
-
-
+    
         </>
 
     )
