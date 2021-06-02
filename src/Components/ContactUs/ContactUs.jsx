@@ -16,13 +16,13 @@ const ContactUs = () => {
                 <Container>
                     <Row>
                         <Col>
-                            <Button variant="danger" href="https://www.facebook.com/profile.php?id=100068735958729">Facebook Page</Button>
+                            <Button variant="danger" target="_blank" href="https://www.facebook.com/profile.php?id=100068735958729">Facebook Page</Button>
                         </Col>
                         <Col>
-                            <Button variant="danger" href="https://www.instagram.com/qacinemas123/">Instagram Page</Button>
+                            <Button variant="danger" target="_blank" href="https://www.instagram.com/qacinemas123/">Instagram Page</Button>
                         </Col>
                         <Col>
-                            <Button variant="danger" href="https://twitter.com/QACinema4">Twitter Page</Button>
+                            <Button variant="danger" target="_blank" href="https://twitter.com/QACinema4">Twitter Page</Button>
                         </Col>
                     </Row>
                     <br />
