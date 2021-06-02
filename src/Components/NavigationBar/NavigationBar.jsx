@@ -1,5 +1,6 @@
 import {
   Nav,
+  Container,
   Row,
   Col,
   Navbar,
@@ -11,39 +12,39 @@ import {
 import { NavLink } from 'react-router-dom';
 import logo from "../static/Logo.png";
 
+
 const NavigationBar = () => {
   return (
     <>
-      <div className="nav-top">
-         
-        <Navbar sticky="top" >
-          <Navbar.Brand to="/" href="/">
-            <Image src={logo} width={150} />
-          </Navbar.Brand>
-          <Button variant="danger">Login</Button>
-          <Button variant="danger">Sign Up</Button>
-        </Navbar>
 
+      <Navbar className="nav-top" sticky="top" bg="dark"
+        variant="dark"
+        expand="lg">
+        <Navbar.Brand to="/" href="/">
+          <Image src={logo} width={150} />
+        </Navbar.Brand>
 
-        <Navbar sticky="top" 
-          className="nav-bottom"
-          bg="dark"
-          variant="dark"
-          max-width="100%"
-        >
-          <Nav className="mr-auto">
-            <Nav.Link href="/movies">What's On</Nav.Link>
-            <Nav.Link href="/cinemas">Cinemas</Nav.Link>
-            <Nav.Link href="/contactus">Contact Us</Nav.Link>
-            <Nav.Link to="/about" href="/about">About Us</Nav.Link>
-          </Nav>
+        <Nav className="mr-auto">
+          <Nav.Link href="/movies">What's On</Nav.Link>
+          <Nav.Link href="/cinemas">Cinemas</Nav.Link>
+          <Nav.Link href="/contactus">Contact Us</Nav.Link>
+          <Nav.Link to="/about" href="/about">About Us</Nav.Link>
+        </Nav>
 
+        <Nav className="mr-3">
+          <Button variant="danger" className="rounded-pill" style={{borderColor:"#343A40", border: "10px"}}>Login</Button>{' '}
+          <Button variant="danger" className="rounded-pill" style={{borderColor:"#343A40", border: "10px"}}>Sign Up</Button>
+        </Nav>
+
+        <Nav>
           <Form inline>
+            {' '}
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
             <Button variant="outline-danger">Search</Button>
           </Form>
-        </Navbar>
-      </div>
+        </Nav>
+      </Navbar>
+
     </>
   );
 };
