@@ -2,48 +2,53 @@
    
     {
         
-        "name": "Neel Dudhia",
-        "age": 23,
-        "jobTitle": "Digital Consultant",
-        "Hobbies": "Music+F1",
-        "twitter": "Twitter",
-        "email": "NDudhia@qa.com",
-        "img": "download.jpg"
+        "name":"Neel",
+        "surname":"Dudhia",
+        "age":23,
+        "jobTitle":"Digital Consultant",
+        "hobbies":"Music, Formula 1",
+        "twitter":"@ndudhia",
+        "email":"NDudhia@qa.com",
+        "img":"https://edit.co.uk/uploads/2016/12/Image-1-Alternatives-to-stock-photography-Thinkstock.jpg"
     },
     {
-        "name": "Usman Sajid",
-        "age": 23,
-        "jobTitle": "Digital Consultant",
-        "Hobbies": "Gym, Coding",
-        "twitter": "@Twitter",
-        "email": "usman230@hotmail.co.uk",
-        "img": "download.jpg"
+        "name":"Usman",
+        "surname":"Sajid",
+        "age":23,
+        "jobTitle":"Digital Consultant",
+        "hobbies":"Gym, Coding",
+        "twitter":"@uSajid",
+        "email":"usman230@hotmail.co.uk",
+        "img":"https://edit.co.uk/uploads/2016/12/Image-1-Alternatives-to-stock-photography-Thinkstock.jpg"
     },
     {
-        "name": "Zayne Jamil",
+        "name": "Zayne",
+        "surname":"Jamil",
         "age": 24,
-        "jobTitle": "Digital Consultant",
-        "Hobbies": "Gaming, Cooking",
-        "twitter": "@Twitter",
+        "jobTitle":"Digital Consultant",
+        "hobbies":"Gaming, Cooking",
+        "twitter":"@zJamil",
         "email": "zjamil@qa.com",
-        "img": "download.jpg"
+        "img":"https://edit.co.uk/uploads/2016/12/Image-1-Alternatives-to-stock-photography-Thinkstock.jpg"
     },
     {
-        "name": "Philip Sephton",
-        "age": 26,
-        "jobTitle": "Digital Consultant",
-        "Hobbies": "Gaming, Tv",
-        "twitter/insta": "@Twitter",
-        "email": "PSephton@qa.com",
-        "img": "Put a photo in team photos"
+        "name":"Philip",
+        "surname":"Sephton",
+        "age":26,
+        "jobTitle":"Digital Consultant",
+        "hobbies":"Gaming, Tv",
+        "twitter":"@pSephton",
+        "email":"PSephton@qa.com",
+        "img":"https://edit.co.uk/uploads/2016/12/Image-1-Alternatives-to-stock-photography-Thinkstock.jpg"
     },
     {
-        "name": "Lamarr Redhead-Davis",
-        "age": 23,
+        "name": "Lamarr",
+        "surname": "Redhead-Davis",
+        "age": 25,
         "jobTitle": "Digital Consultant",
-        "Hobbies": "Gaming, Reading",
-        "twitter": "@Twitter",
+        "hobbies": "Gaming, Reading",
+        "twitter": "@lRedhead-Davis",
         "email": "LRedhead-Davis@qa.com",
-        "img": "download.jpg"
+        "img":"https://edit.co.uk/uploads/2016/12/Image-1-Alternatives-to-stock-photography-Thinkstock.jpg"
     }
 ]
