@@ -61,7 +61,7 @@ const ContactUsForm = () => {
                     <Form.Control as="textarea" value={message} placeholder="Your Message" onChange={(e) => setMessage(e.target.value)} name="message" rows={4} />
                 </Form.Group>
 
-                <Button type="submit" value="Send" >Submit</Button>
+                <Button type="submit" variant="outline-danger" value="Send" >Submit</Button>
 
                 <br />
 
