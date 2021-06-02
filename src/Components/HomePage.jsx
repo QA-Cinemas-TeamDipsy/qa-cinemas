@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import Banner from "./Banner/Banner";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import MovieGrid from "./MovieGrid/MovieGrid";
 import axios from "axios";
 
 const HomePage = () => {
