@@ -6,17 +6,17 @@ const AboutCard = (props) => {
 
 console.log(props);
     return (
-        <Card className = "mb-10" style={{background:'orange', width: '18 rem' }}>
+        <Card className = "mb-2" style={{background:'orange', width: "18 rem" }}>
             <Card.Img variant="top" src={img} />
             <Card.Body>
                 <Card.Title>{name}</Card.Title>
                 <Card.Title>{surname}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{jobTitle}, {age}</Card.Subtitle>
-
-             <ListGroup >
-                <ListGroup.Item variant = "warning"> Hobbies: {hobbies}</ListGroup.Item>
-                <ListGroup.Item variant = "warning">Email: {email}</ListGroup.Item>
-                <ListGroup.Item variant = "warning">Twitter: {twitter}</ListGroup.Item>
+              
+             <ListGroup style={{sizeAdjust:' 0.5 rem'}}>
+                <ListGroup.Item variant = "warning" style={{fontSize: "10pt"}}><b>Hobbies:</b> {hobbies}</ListGroup.Item>
+                <ListGroup.Item  variant = "warning" style={{fontSize: "10pt"}}><b>Email:</b>{email}</ListGroup.Item>
+                <ListGroup.Item variant = "warning"style={{fontSize: "10pt"}}><b>Twitter:</b>  {twitter}</ListGroup.Item>
                 
             </ListGroup>
                 
