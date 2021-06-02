@@ -1,4 +1,8 @@
-body{
-    background: rgb(0, 29, 65);
-    color: white;
+body {
+  background: rgb(0, 0, 0);
+  color: white;
+}
+
+.nav-top {
+  background: white;
 }
