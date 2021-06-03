@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Carousel, Image, Row, Col, Button, Container } from "react-bootstrap";
+import MovieList from "./MovieList";
 
 const Movies = (props) => {
-  const [movies, setMovies] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+  // const [movies, setMovies] = useState([]);
+  const [currentMovies, setCurrentMovies] = useState([]);
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
+  const [displayUpcoming, setDisplayUpcoming] = useState(false);
+  const [displayCurrent, setDisplayCurrent] = useState(false);
+
+  const [currentIsLoaded, setCurrentIsLoaded] = useState(false);
+  const [futureIsLoaded, setFutureIsLoaded] = useState(false);
   const [err, setError] = useState({});
 
   useEffect(() => {
@@ -33,62 +40,69 @@ const Movies = (props) => {
       return axios.get(`${MOVIES_API_URL}i=${movie}`);
     });
 
+    let upcomingMovieRequests = FUTURE_MOVIES.map((movie) => {
+      return axios.get(`${MOVIES_API_URL}i=${movie}`);
+    });
+
     Promise.all(currentMovieRequests)
       .then((responses) => {
         console.log(responses);
-        setIsLoaded(true);
-        setMovies(responses.map((x) => x.data));
+        setCurrentIsLoaded(true);
+        setCurrentMovies(responses.map((x) => x.data));
       })
       .catch((err) => {
         console.error(err.message);
-        setIsLoaded(true);
+        setCurrentIsLoaded(true);
+        setError(err);
+      });
+
+    Promise.all(upcomingMovieRequests)
+      .then((responses) => {
+        console.log(responses);
+        setFutureIsLoaded(true);
+        setUpcomingMovies(responses.map((x) => x.data));
+      })
+      .catch((err) => {
+        console.error(err.message);
+        setFutureIsLoaded(true);
         setError(err);
       });
   }, []);
 
+  const handleDisplayCurrent = () => {
+    setDisplayCurrent(true);
+    <h1>Whats on now</h1>;
+    setDisplayUpcoming(false);
+  };
+
+  const handleDisplayUpcoming = () => {
+    setDisplayCurrent(false);
+    <h1>Coming Soon</h1>;
+    setDisplayUpcoming(true);
+  };
+
   return (
     <>
-      {/* <Button> Whats on </Button> | <Button>Coming Soon</Button> */}
+      <Button variant="secondary" onClick={handleDisplayCurrent}>
+        {" "}
+        Whats on{" "}
+      </Button>
+      <Button variant="secondary" onClick={handleDisplayUpcoming}>
+        Coming Soon
+      </Button>
 
-      <h1>Whats On</h1>
-
-      {movies.map((movie) => (
-        <Container>
-          <Row>
-            <Col sm>
-              <Image src={movie.Poster} />
-            </Col>
-            <Col sm>
-              <Carousel.Caption id="caption">
-                <h3>{movie.Title}</h3>
-                <br />
-              </Carousel.Caption>
-            </Col>
-            <Col className="align-items-center">
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <Row className="justify-content-center">
-                <Button variant="outline-danger">View Info</Button>
-              </Row>
-              <br />
-              <Row className="justify-content-center ">
-                <Button variant="outline-danger">Book Tickets</Button>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
-      ))}
+      <h1>Book Now</h1>
+      <MovieList
+        movies={displayUpcoming ? upcomingMovies : currentMovies}
+      ></MovieList>
     </>
   );
 };
+
 export default Movies;
 
-//   useEffect(() => {
+{
+  /* //   useEffect(() => {
 //     const MOVIES_API_URL = "http://www.omdbapi.com/?apikey=1fac6c28&";
 //     const MOVIE_ID = props.params.movieID;
 
@@ -117,4 +131,5 @@ export default Movies;
 //       console.error(err.message);
 //       setIsLoaded(true);
 //       setError(err);
-//     });
+//     }); */
+}
