@@ -14,9 +14,9 @@ const ContactUs = () => {
         <>
             <div className="text-center">
                 <h1>Contact Us</h1>
-                <Elements stripe={stripePromise}>
+                {/* <Elements stripe={stripePromise}>
             <CheckoutForm />
-        </Elements>
+        </Elements> */}
                 <ContactUsForm />
                 <br />
                 <Container>
