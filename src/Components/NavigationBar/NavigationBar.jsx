@@ -11,9 +11,18 @@ import {
 } from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
 import logo from "../static/Logo.png";
+import UserRegistration from "../SignUp/UserRegistration";
+import {useState} from "react"
 
 
 const NavigationBar = () => {
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  }
+  
   return (
     <>
 
@@ -33,7 +42,7 @@ const NavigationBar = () => {
 
         <Nav className="mr-3">
           <Button variant="danger" className="rounded-pill" style={{borderColor:"#343A40", border: "10px"}}>Login</Button>{' '}
-          <Button variant="danger" className="rounded-pill" style={{borderColor:"#343A40", border: "10px"}}>Sign Up</Button>
+          <Button variant="danger" className="rounded-pill" style={{borderColor:"#343A40", border: "10px"}} onClick={handleShowModal}>Sign Up</Button>
         </Nav>
 
         <Nav>
@@ -45,6 +54,7 @@ const NavigationBar = () => {
         </Nav>
       </Navbar>
 
+      <UserRegistration showModal={showModal}  updateState={setShowModal}/>
     </>
   );
 };
