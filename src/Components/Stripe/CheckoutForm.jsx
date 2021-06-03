@@ -1,8 +1,9 @@
 import { ElementsConsumer, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
+import CardSection from "./CardSection"
 
 const CheckoutForm = () => {
-    handleSubmit = async event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         const obj = {
             "amount":200,
@@ -20,16 +21,15 @@ const CheckoutForm = () => {
                 console.error(error)
             }
         );
+    }
 
     return(
-        return (
             <div>
-              <form onSubmit={this.handleSubmit}>
+              <form onSubmit={handleSubmit}>
                 <CardSection />
                 <button className="btn-pay">Buy Now</button>
               </form>
             </div>
-          );
     )
 }
 export default CheckoutForm;

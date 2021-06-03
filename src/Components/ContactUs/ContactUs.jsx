@@ -2,6 +2,7 @@
 // this needs to be run for the email api
 import emailjs from 'emailjs-com';
 import { Button, Form, Row, Container, Col } from 'react-bootstrap'
+import Payment from '../Stripe/Payment';
 import ContactUsForm from './ContactUsForm'
 
 const ContactUs = () => {
@@ -11,6 +12,7 @@ const ContactUs = () => {
         <>
             <div className="text-center">
                 <h1>Contact Us</h1>
+                <Payment/>
                 <ContactUsForm />
                 <br />
                 <Container>

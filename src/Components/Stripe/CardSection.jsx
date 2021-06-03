@@ -23,7 +23,7 @@ const CARD_ELEMENT_OPTIONS = {
   }
 };
 
-CardSection = () => {
+const CardSection = () => {
   return <CardElement options={CARD_ELEMENT_OPTIONS} />;
 }
 export default CardSection;
