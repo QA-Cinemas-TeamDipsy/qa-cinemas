@@ -8,8 +8,15 @@ const CheckoutForm = () => {
         const obj = {
             "amount":200,
             "cardId":"card_1IyBnZAlfwidcJXzOi0RmFYP",
-            "oneTime":false,
-            "email":"philipsephton1994@gmail.com"
+            "oneTime":true,
+            "email":"philipsephton1994@gmail.com",
+            "cardNumber":4242424242424242,
+            "cardExpMonth":"04",
+            "cardExpYear":"2027",
+            "cardCVC":"558",
+            "cardName":"Edward Kenway",
+            "country":"India",
+            "postal_code":"123456"
         }
         axios.post("http://localhost:4000/api/createCharge", obj)
         .then((res) => res)
