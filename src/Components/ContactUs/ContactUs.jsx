@@ -2,17 +2,21 @@
 // this needs to be run for the email api
 import emailjs from 'emailjs-com';
 import { Button, Form, Row, Container, Col } from 'react-bootstrap'
-import Payment from '../Stripe/Payment';
 import ContactUsForm from './ContactUsForm'
+import CheckoutForm from "../Stripe/CheckoutForm"
+import { Elements, CardElement } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 const ContactUs = () => {
-
+    const stripePromise = loadStripe("pk_test_51Ixvo4AlfwidcJXzEk6Xjy2PbREpIBDjou952mvWJwn5ZIM7sBXFHJ4YOQAEUMMxf3lQCsnRtXC8RnQfAkb0NRwJ00pJ9LsJu3")
 
     return (
         <>
             <div className="text-center">
                 <h1>Contact Us</h1>
-                <Payment/>
+                <Elements stripe={stripePromise}>
+            <CheckoutForm />
+        </Elements>
                 <ContactUsForm />
                 <br />
                 <Container>
