@@ -1,15 +1,16 @@
 import {Form, Button, Col} from 'react-bootstrap'
 import { useState } from 'react'
+import axios from 'axios'
 
 const PaymentForm = () => {
 
     const [email, setEmail] = useState("");
     const [cardName, setCardName] = useState("");
     const [cardNumber, setCardNumber] = useState("");
-    const [cvc, setCVC] = useState(000);
+    const [cvc, setCVC] = useState("");
     const [country, setCountry] = useState("");
-    const [expMonth, setExpMonth] = useState(01);
-    const [expYear, setExpYear] = useState(2021);
+    const [expMonth, setExpMonth] = useState("");
+    const [expYear, setExpYear] = useState("2021");
     const [postCode, setPostCode] = useState("");
 
     const sendPayment = async event => {
@@ -18,27 +19,29 @@ const PaymentForm = () => {
             "amount":200,
             "cardId":"card_1IyBnZAlfwidcJXzOi0RmFYP",
             "oneTime":true,
-            "email":{email},
-            "cardNumber":{cardNumber},
-            "cardExpMonth":{expMonth},
-            "cardExpYear":{expYear},
-            "cardCVC":{cvc},
-            "cardName":{cardName},
-            "country":{country},
-            "postal_code":{postCode}
+            "email":email,
+            "cardNumber":cardNumber,
+            "cardExpMonth":expMonth,
+            "cardExpYear":expYear,
+            "cardCVC":cvc,
+            "cardName":cardName,
+            "country":country,
+            "postal_code":postCode
         }
+        console.log(obj);
         axios.post("http://localhost:4000/api/createCharge", obj)
         .then((res) => res)
         .then((result) => {
+            
             console.log('successfully Added '+ result);
             setEmail("")
             setCardNumber("")
             setCardName("")
-            setExpMonth(01)
-            setExpYear(2021)
+            setExpMonth("")
+            setExpYear("2021")
             setCountry("")
             setPostCode("")
-            setCVC(000)
+            setCVC("000")
             
         },
             (error) => {
@@ -63,7 +66,7 @@ const PaymentForm = () => {
 
             <Form.Group controlId="cardNumber">
                 <Form.Label>Card Number</Form.Label>
-                <Form.Control value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} placeholder="1234 Main St" />
+                <Form.Control value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} placeholder="Card Number" />
             </Form.Group>
 
             <Form.Group controlId="cardCVC">
