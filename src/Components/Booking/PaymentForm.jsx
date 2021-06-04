@@ -2,7 +2,7 @@ import {Form, Button, Col} from 'react-bootstrap'
 import { useState } from 'react'
 import axios from 'axios'
 
-const PaymentForm = () => {
+const PaymentForm = ({totalTicketsPrice}) => {
 
     const [email, setEmail] = useState("");
     const [cardName, setCardName] = useState("");
@@ -16,7 +16,7 @@ const PaymentForm = () => {
     const sendPayment = async event => {
         event.preventDefault();
         const obj = {
-            "amount":200,
+            "amount":totalTicketsPrice,
             "cardId":"card_1IyBnZAlfwidcJXzOi0RmFYP",
             "oneTime":true,
             "email":email,
