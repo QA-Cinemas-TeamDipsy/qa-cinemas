@@ -1,4 +1,5 @@
 import { Form, Row, Col } from "react-bootstrap";
+import "./User.css"
 
 const UserForm = () => {
 
@@ -7,14 +8,13 @@ const UserForm = () => {
             <Form>
 
                 <Row>
-                    <Form.Label>Name</Form.Label>
                     <Col>
                         <Form.Label>First Name</Form.Label>
-                        <Form.Control placeholder="First name" />
+                        <Form.Control type="text" placeholder="First name" />
                     </Col>
                     <Col>
                         <Form.Label>Last Name</Form.Label>
-                        <Form.Control placeholder="Last name" />
+                        <Form.Control type="text" placeholder="Last name" />
                     </Col>
                 </Row>
 
@@ -28,38 +28,29 @@ const UserForm = () => {
                         <option>5</option>
                     </Form.Control>
                 </Form.Group>
-                <Form.Group controlId="formBasicEmail">
+
+                <Form.Group controlId="formEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
                     <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                     </Form.Text>
                 </Form.Group>
-                <Form.Group controlId="formBasicEmail">
+
+                <Form.Group controlId="formConfirmEmail">
                     <Form.Label>Confirm Email address</Form.Label>
                     <Form.Control type="email" placeholder="Confirm email" />
                 </Form.Group>
-                <Form.Group controlId="formBasicPassword">
+
+                <Form.Group controlId="formPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group controlId="formBasicPasswordConfirm">
+
+                <Form.Group controlId="formConfirmPassword">
                     <Form.Label>Confirm Password</Form.Label>
                     <Form.Control type="password" placeholder="ConfirmPassword" />
                 </Form.Group>
-
-                <Row>
-                    <Form.Label>Date of birth</Form.Label>
-                    <Col>
-                        <Form.Control placeholder="DD" />
-                    </Col>
-                    <Col>
-                        <Form.Control placeholder="MM" />
-                    </Col>
-                    <Col>
-                        <Form.Control placeholder="YYYY" />
-                    </Col>
-                </Row>
             </Form>
         </>
     )

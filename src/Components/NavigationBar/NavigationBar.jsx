@@ -12,17 +12,25 @@ import {
 import { NavLink } from 'react-router-dom';
 import logo from "../static/Logo.png";
 import UserRegistration from "../SignUp/UserRegistration";
-import {useState} from "react"
+import UserLogin from "../SignUp/UserLogin";
+import { useState } from "react"
 
 
 const NavigationBar = () => {
 
-  const [showModal, setShowModal] = useState(false);
-
-  const handleShowModal = () => {
-    setShowModal(true);
-  }
+  const [showLogModal, setShowLogModal] = useState(false);
   
+  const [showRegModal, setShowRegModal] = useState(false);
+  
+
+  const handleShowRegModal = () => {
+    setShowRegModal(true);
+  };
+
+  const handleShowLogModal = () => {
+    setShowLogModal(true);
+  };
+
   return (
     <>
 
@@ -41,8 +49,8 @@ const NavigationBar = () => {
         </Nav>
 
         <Nav className="mr-3">
-          <Button variant="danger" className="rounded-pill" style={{borderColor:"#343A40", border: "10px"}}>Login</Button>{' '}
-          <Button variant="danger" className="rounded-pill" style={{borderColor:"#343A40", border: "10px"}} onClick={handleShowModal}>Sign Up</Button>
+          <Button variant="danger" className="rounded-pill" style={{ borderColor: "#343A40", border: "10px" }} onClick={handleShowLogModal}>Login</Button>{' '}
+          <Button variant="danger" className="rounded-pill" style={{ borderColor: "#343A40", border: "10px" }} onClick={handleShowRegModal}>Sign Up</Button>
         </Nav>
 
         <Nav>
@@ -54,7 +62,8 @@ const NavigationBar = () => {
         </Nav>
       </Navbar>
 
-      <UserRegistration showModal={showModal}  updateState={setShowModal}/>
+      <UserLogin showModal={showLogModal} updateState={setShowLogModal} />
+      <UserRegistration showModal={showRegModal} updateState={setShowRegModal} />
     </>
   );
 };

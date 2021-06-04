@@ -1,8 +1,8 @@
 import { Modal, Button } from "react-bootstrap";
-import RegisterForm from "./RegisterForm.jsx";
+import LoginForm from "./LoginForm.jsx";
 import "./User.css"
 
-const UserRegistration = ({showModal, updateState}) => {
+const UserLogin = ({showModal, updateState}) => {
     
     // const {showModal, updateState} = props;
 
@@ -10,11 +10,8 @@ const UserRegistration = ({showModal, updateState}) => {
         updateState(false);
     };
     const handleSubmit = () => {
-        
-        
-
         updateState(false);
-    }
+    };
     
 
     return (
@@ -26,20 +23,20 @@ const UserRegistration = ({showModal, updateState}) => {
                 keyboard={false}
             >
                 <Modal.Header closeButton>
-                    <Modal.Title>Sign Up</Modal.Title>
+                    <Modal.Title>Sign In</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <RegisterForm/>
+                    <LoginForm/>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" className="formButton" onClick={handleClose}>
+                    <Button variant="secondary" className="formButton"  onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="secondary" className="formButton" onClick={handleSubmit}>Register</Button>
+                    <Button variant="secondary" className="formButton" onClick={handleSubmit}>Login</Button>
                 </Modal.Footer>
             </Modal>
         </>
     );
 }
 
-export default UserRegistration;
+export default UserLogin;
