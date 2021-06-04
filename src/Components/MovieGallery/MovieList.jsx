@@ -1,43 +1,48 @@
+import React, { useState } from "react";
 import { Carousel, Image, Row, Col, Button, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import "./MovieList.css";
 
 const MovieList = (props) => {
-  const { movies } = props;
+  const { movies, upComing } = props;
+  // const { movie, setMovie } = useState({});
+  movies.map((a) => {
+    console.log(a);
+  });
 
   return (
     <>
-      {movies.map((movie, id) => (
-        <Container>
-          <Row>
-            <Col sm>
-              <Image src={movie.Poster} />
-            </Col>
-            <Col sm>
-              <Carousel.Caption id="caption">
-                <h3>{movie.Title}</h3>
-                <br /> <br />
-                <br /> <br />
-                <br /> <br />
-                <br />
-              </Carousel.Caption>
-            </Col>
-            <Col className="align-items-center">
-              <br /> <br />
-              <br /> <br />
-              <br /> <br />
-              <br />
-              <Row className="justify-content-center">
-                <Button variant="outline-danger" href="{}">
-                  View Info
+      <Container>
+        <br />
+        <br />
+        <Row>
+          {movies.map((movie, id) => (
+            <>
+              <Col sm={4} key={id} className="movie">
+                <Image className="posterImage-img" src={movie.Poster} />
+                <h3 style={{ margin: "10px 5px " }}>{movie.Title}</h3>
+                <a href={`movieinfo?${movie.imdbID}`}>
+                  <Button
+                    className="m-3"
+                    variant="outline-danger"
+                    movieData={movie}
+                  >
+                    View Info
+                  </Button>
+                </a>
+
+                <Button disabled={upComing} variant="outline-danger" href="{}">
+                  Book Ticket
                 </Button>
-              </Row>
-              <br />
-              <Row className="justify-content-center ">
-                <Button variant="outline-danger">Book Tickets</Button>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
-      ))}
+
+                <br />
+                <br />
+              </Col>
+            </>
+          ))}
+        </Row>
+      </Container>
+      {/* {movie && history.push({ pathname: "/movies/info", state: { ...movie } })} */}
     </>
   );
 };
