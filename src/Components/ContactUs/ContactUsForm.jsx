@@ -7,14 +7,19 @@ const ContactUsForm = () => {
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    const [subject, setSubject] = useState("");
     const [show, setShow] = useState(false);
+    const [showErr, setShowErr] = useState(false);
 
     const sendEmail = (e) => {
         e.preventDefault();
-
+        if(subject == ""){
+            setShowErr(true);
+            
+        }else{
+        console.log(subject)
         emailjs.sendForm('service_q7kggnf', 'template_r5cg8dx', e.target, 'user_GFikwRvFbBhQsqBJT1Y75')
             .then((result) => {
-                console.log(result.text);
                 setUserName("")
                 setEmail("")
                 setMessage("")
@@ -22,7 +27,7 @@ const ContactUsForm = () => {
 
             }, (error) => {
                 console.log(error.text);
-            });
+        })};
     }
     return (
         <Container>
@@ -38,6 +43,20 @@ const ContactUsForm = () => {
                     </Button>
                 </div>
             </Alert>
+
+            <Alert show={showErr} variant="danger">
+                <Alert.Heading>Error!</Alert.Heading>
+                <p>
+                    Please can you insert a subject for the email
+                </p>
+                <hr />
+                <div className="d-flex justify-content-end">
+                    <Button onClick={() => setShowErr(false)} variant="outline-success">
+                        Close
+                    </Button>
+                </div>
+            </Alert>
+
             <Form className="contact-form" onSubmit={sendEmail}>
 
                 <input type="hidden" name="contact_number" />
@@ -52,6 +71,13 @@ const ContactUsForm = () => {
                 <Form.Group controlId="emailInput">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" value={email} placeholder="name@example.com" onChange={(e) => setEmail(e.target.value)} name="user_email" />
+                </Form.Group>
+
+                <br />
+
+                <Form.Group controlId="emailSubject">
+                    <Form.Label>Subject</Form.Label>
+                    <Form.Control type="text" value={subject} placeholder="Bookings help" onChange={(e) => setSubject(e.target.value)} name="user_email" />
                 </Form.Group>
 
                 <br />
