@@ -6,6 +6,7 @@ import Footer from "./Components/Footer/Footer"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import "./App.css";
+import Classifications from "./Components/Classifications/Classifications";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <HomePage />
         </Route>
         <Route path="/ContactUs" component={ContactUs} />
+        <Route path="/Classifications" component={Classifications} />
         <Route path="/about">
           <AboutPage />
         </Route>
