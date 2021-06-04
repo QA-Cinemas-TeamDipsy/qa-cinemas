@@ -1,18 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import axios from "axios";
-import { Carousel, Image, Row, Col, Button, Container } from "react-bootstrap";
+import {
+  Carousel,
+  Image,
+  Row,
+  Col,
+  Button,
+  Container,
+  Tabs,
+  Tab,
+} from "react-bootstrap";
 import MovieList from "./MovieList";
+import "./Movies.css";
+
+export const MovieContext = createContext();
 
 const Movies = (props) => {
   // const [movies, setMovies] = useState([]);
   const [currentMovies, setCurrentMovies] = useState([]);
   const [upcomingMovies, setUpcomingMovies] = useState([]);
-  const [displayUpcoming, setDisplayUpcoming] = useState(false);
-  const [displayCurrent, setDisplayCurrent] = useState(false);
+  // const [displayUpcoming, setDisplayUpcoming] = useState(false);
+  // const [displayCurrent, setDisplayCurrent] = useState(false);
 
   const [currentIsLoaded, setCurrentIsLoaded] = useState(false);
   const [futureIsLoaded, setFutureIsLoaded] = useState(false);
   const [err, setError] = useState({});
+  // const [movies, setAllMovies] = useState([]);
 
   useEffect(() => {
     const MOVIES_API_URL = "http://www.omdbapi.com/?apikey=1fac6c28&";
@@ -69,32 +82,50 @@ const Movies = (props) => {
       });
   }, []);
 
-  const handleDisplayCurrent = () => {
-    setDisplayCurrent(true);
-    <h1>Whats on now</h1>;
-    setDisplayUpcoming(false);
-  };
+  // const handleDisplayCurrent = () => {
+  //   setDisplayCurrent(true);
+  //   <h1>Whats on now</h1>;
+  //   setDisplayUpcoming(false);
+  // };
 
-  const handleDisplayUpcoming = () => {
-    setDisplayCurrent(false);
-    <h1>Coming Soon</h1>;
-    setDisplayUpcoming(true);
-  };
+  // const handleDisplayUpcoming = () => {
+  //   setDisplayCurrent(false);
+  //   <h1>Coming Soon</h1>;
+  //   setDisplayUpcoming(true);
+  // };
 
   return (
     <>
-      <Button variant="secondary" onClick={handleDisplayCurrent}>
+      <Tabs defaultActiveKey="current" id="uncontrolled-tab-example">
+        <Tab eventKey="current" title="Current Movies">
+          <MovieList movies={currentMovies} />
+        </Tab>
+        <Tab eventKey="upcoming" title="Upcoming Movies">
+          <MovieList movies={upcomingMovies} />
+        </Tab>
+      </Tabs>
+
+      {/* <Button className="m-3" variant="danger" onClick={handleDisplayCurrent}>
         {" "}
         Whats on{" "}
       </Button>
-      <Button variant="secondary" onClick={handleDisplayUpcoming}>
+
+      <Button
+        variant="warning"
+        onClick={handleDisplayUpcoming}
+        style={{ color: "white" }}
+      >
         Coming Soon
       </Button>
 
-      <h1>Book Now</h1>
-      <MovieList
-        movies={displayUpcoming ? upcomingMovies : currentMovies}
-      ></MovieList>
+      {/* <h1>Book Now</h1> 
+       <MovieContext.Provider value={[movies]}>
+        <MovieList
+          movies={displayUpcoming ? upcomingMovies : currentMovies}
+          upComing={displayUpcoming}
+        ></MovieList>
+      </MovieContext.Provider> }{" "}
+      }*/}
     </>
   );
 };
