@@ -33,6 +33,9 @@ const NavigationBar = () => {
           <Nav.Link to="/about" href="/about">
             About Us
           </Nav.Link>
+          <Nav.Link to="/discuss-board" href="/discuss-board">
+            Discussion Board
+          </Nav.Link>
         </Nav>
 
         <Nav className="mr-3">

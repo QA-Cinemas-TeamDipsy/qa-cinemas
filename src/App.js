@@ -7,6 +7,7 @@ import Footer from "./Components/Footer/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
+import DiscussionBoard from "./Components/DiscussionBoard/DiscussionBoaard";
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
 
         <Route exact path="/about">
           <AboutPage />
+        </Route>
+
+        <Route exact path="/discuss-board">
+          <DiscussionBoard />
         </Route>
       </Switch>
       <br />
