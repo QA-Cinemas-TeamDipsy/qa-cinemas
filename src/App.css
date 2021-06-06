@@ -1,6 +1,7 @@
 body {
   background: rgb(0, 0, 0);
   color: white;
+  -webkit-filter: brightness(90%);
 }
 
 .nav-top {
