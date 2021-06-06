@@ -7,7 +7,7 @@ import Footer from "./Components/Footer/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
-import DiscussionBoard from "./Components/DiscussionBoard/DiscussionBoaard";
+import DiscussionBoard from "./Components/DiscussionBoard/DiscussionBoard";
 
 function App() {
   return (
