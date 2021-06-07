@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
 import "./App.css";
 import Classifications from "./Components/Classifications/Classifications";
+import BookTickets from "./Components/Booking/BookTickets";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <HomePage />
         </Route>
         <Route path="/ContactUs" component={ContactUs} />
+        <Route path="/BookTickets" component={BookTickets} />
         <Route path="/Classifications" component={Classifications} />
         <Route path="/about">
           <AboutPage />
