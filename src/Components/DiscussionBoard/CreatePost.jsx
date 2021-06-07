@@ -59,7 +59,7 @@ const CreatePosts = ({ handleCreatePost }) => {
               <h3>Movie Name:</h3>
             </Form.Label>
             <Form.Text className="text-muted">
-              Enter a name of the movie you wish to review
+              Enter a name of the movie if you wish to review a specific film
             </Form.Text>
             <Form.Control
               type="movie-name"
