@@ -1,10 +1,14 @@
-import { Form, Button, Col, Modal, Container } from 'react-bootstrap'
+import { Alert, Form, Button, Col, Modal, Container } from 'react-bootstrap'
 import { useState } from 'react'
 import axios from 'axios'
 
-const PaymentForm = ({ totalTicketsPrice }) => {
+const PaymentForm = (props) => {
 
-    console.log(totalTicketsPrice)
+    const [showErr, setShowErr] = useState(false);
+    const [show, setShow] = useState(false);
+
+
+    const cost = props.location.state.totalTicketsPrice;
     const [email, setEmail] = useState("");
     const [cardName, setCardName] = useState("");
     const [cardNumber, setCardNumber] = useState("");
@@ -17,7 +21,7 @@ const PaymentForm = ({ totalTicketsPrice }) => {
     const sendPayment = async event => {
         event.preventDefault();
         const obj = {
-            "amount": totalTicketsPrice * 100,
+            "amount": cost * 100,
             "cardId": "card_1IyBnZAlfwidcJXzOi0RmFYP",
             "oneTime": true,
             "email": email,
@@ -43,21 +47,39 @@ const PaymentForm = ({ totalTicketsPrice }) => {
                 setCountry("")
                 setPostCode("")
                 setCVC("000")
+                setShow(true);
 
             },
                 (error) => {
                     console.error(error)
+                    setShowErr(true);
                 }
             );
     }
 
     return (
         <>
-        <Container style="font-color">
-            <Modal.Header className="modal-header" closeButton>
-                <Modal.Title >Stripe</Modal.Title>
-            </Modal.Header>
-            <Modal.Body className="modal-body">
+            <Alert show={show} variant="success">
+                <Alert.Heading>Successful Payment!</Alert.Heading>
+                <p>Thank you for booking, we will email you shortly with your receipt</p>
+                <hr />
+                <div className="d-flex justify-content-end">
+                    <Button onClick={() => setShow(false)} variant="outline-success">
+                        Close
+          </Button>
+                </div>
+            </Alert>
+            <Alert show={showErr} variant="danger">
+                <Alert.Heading>Error with payment!</Alert.Heading>
+                <p>There was a problem with the information you entered please can you try again</p>
+                <hr />
+                <div className="d-flex justify-content-end">
+                    <Button onClick={() => setShowErr(false)} variant="outline-danger">
+                        Close
+          </Button>
+                </div>
+            </Alert>
+            <Container>
                 <Form onSubmit={sendPayment}>
                     <Form.Row>
                         <Form.Group as={Col} controlId="email">
@@ -129,12 +151,9 @@ const PaymentForm = ({ totalTicketsPrice }) => {
                         </Form.Group>
                     </Form.Row>
                 </Form>
-                <Modal.Footer className="modal-footer">
-                    <Button variant="primary" type="submit">
-                        Submit
+                <Button variant="primary" onClick={sendPayment}>
+                    Submit
                     </Button>
-                </Modal.Footer>
-            </Modal.Body>
             </Container>
         </>
     )

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Form, Button, Col, Modal } from 'react-bootstrap'
-import PaymentForm from "./PaymentForm";
+import { Link, NavLink } from 'react-router-dom';
 
-const BookTickets = () => {
+const BookTickets = ({screeningDate, screeningTime, movieTitle}) => {
 
     const [show, setShow] = useState(false);
 
@@ -109,15 +109,18 @@ const BookTickets = () => {
                 </Form.Control>
             </Form.Group>
 
-            <Button variant="primary" onClick={handleShow}>
-        Checkout
-      </Button>
-      <Modal size="lg" show={show} onHide={handleClose}>
-        <PaymentForm totalTicketsPrice={totalTicketsPrice}/>
-        
-      </Modal>
+            <Link
+          to={{
+              pathname:"/Payments",
+          state: {totalTicketsPrice}
+          }}>
+          <Button variant="outline-danger">Go To Checkout</Button>
+        </Link>
 
-
+            <p>Movie Title: {movieTitle}</p>
+            <p>
+                Screening date and time: {screeningDate}, {screeningTime}
+            </p>
             <p>Total tickets: {totalTickets}</p>
             <p>Total tickets cost: £{totalTicketsPrice}</p>
         </Form>
