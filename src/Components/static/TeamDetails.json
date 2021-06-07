@@ -1,0 +1,54 @@
+[
+   
+    {
+        
+        "name":"Neel",
+        "surname":"Dudhia",
+        "age":23,
+        "jobTitle":"Digital Consultant",
+        "hobbies":"Music, Formula 1",
+        "twitter":"@ndudhia",
+        "email":"NDudhia@qa.com",
+        "img":"https://edit.co.uk/uploads/2016/12/Image-1-Alternatives-to-stock-photography-Thinkstock.jpg"
+    },
+    {
+        "name":"Usman",
+        "surname":"Sajid",
+        "age":23,
+        "jobTitle":"Digital Consultant",
+        "hobbies":"Gym, Coding",
+        "twitter":"@uSajid",
+        "email":"usman230@hotmail.co.uk",
+        "img":"https://static7.depositphotos.com/1008939/768/i/600/depositphotos_7682771-stock-photo-little-genius.jpg"
+    },
+    {
+        "name": "Zayne",
+        "surname":"Jamil",
+        "age": 24,
+        "jobTitle":"Digital Consultant",
+        "hobbies":"Gaming, Cooking",
+        "twitter":"@zJamil",
+        "email": "zjamil@qa.com",
+        "img":"https://thumbs.dreamstime.com/b/young-programmer-writes-new-software-computer-35012765.jpg"
+    },
+    {
+        "name":"Philip",
+        "surname":"Sephton",
+        "age":26,
+        "jobTitle":"Digital Consultant",
+        "hobbies":"Gaming, Tv",
+        "twitter":"@pSephton",
+        "email":"PSephton@qa.com",
+        "img":"https://thumbs.dreamstime.com/b/close-up-portrait-prodigy-kid-hacker-programmer-data-center-filled-monitor-screens-children-using-digital-devices-boy-153271282.jpg"
+    },
+    {
+        "name": "Lamarr",
+        "surname": "Redhead-Davis",
+        "age": 25,
+        "jobTitle": "Digital Consultant",
+        "hobbies": "Gaming, Reading",
+        "twitter": "@lRedhead-Davis",
+        "email": "LRedhead-Davis@qa.com",
+        "img":"https://media.istockphoto.com/photos/preadolescent-boy-programming-at-computer-picture-id1061031056?k=6&m=1061031056&s=612x612&w=0&h=3m5YDU1quNTAwdxmv7p2MMaIccjB0vbAUmO9ha9hRcc="
+    }
+]
