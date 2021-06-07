@@ -1,4 +1,4 @@
-import { Form, Button, Col, Modal } from 'react-bootstrap'
+import { Form, Button, Col, Modal, Container } from 'react-bootstrap'
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -53,10 +53,11 @@ const PaymentForm = ({ totalTicketsPrice }) => {
 
     return (
         <>
-            <Modal.Header closeButton>
-                <Modal.Title>Stripe</Modal.Title>
+        <Container style="font-color">
+            <Modal.Header className="modal-header" closeButton>
+                <Modal.Title >Stripe</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
+            <Modal.Body className="modal-body">
                 <Form onSubmit={sendPayment}>
                     <Form.Row>
                         <Form.Group as={Col} controlId="email">
@@ -128,12 +129,13 @@ const PaymentForm = ({ totalTicketsPrice }) => {
                         </Form.Group>
                     </Form.Row>
                 </Form>
-                <Modal.Footer>
+                <Modal.Footer className="modal-footer">
                     <Button variant="primary" type="submit">
                         Submit
                     </Button>
                 </Modal.Footer>
             </Modal.Body>
+            </Container>
         </>
     )
 }

@@ -55,7 +55,6 @@ const BookTickets = () => {
                     value={adultTickets}
                     onChange={(e) => adultTicketUpdate(e)}
                     as="select"
-                    defaultValue="0"
                 >
                     <option>0</option>
                     <option>1</option>
@@ -76,7 +75,6 @@ const BookTickets = () => {
                     value={childTickets}
                     onChange={(e) => childTicketUpdate(e)}
                     as="select"
-                    defaultValue="0"
                 >
                     <option>0</option>
                     <option>1</option>
@@ -97,7 +95,6 @@ const BookTickets = () => {
                     value={seniorTickets}
                     onChange={(e) => seniorTicketUpdate(e)}
                     as="select"
-                    defaultValue="0"
                 >
                     <option>0</option>
                     <option>1</option>
@@ -117,6 +114,7 @@ const BookTickets = () => {
       </Button>
       <Modal size="lg" show={show} onHide={handleClose}>
         <PaymentForm totalTicketsPrice={totalTicketsPrice}/>
+        
       </Modal>
 
 
