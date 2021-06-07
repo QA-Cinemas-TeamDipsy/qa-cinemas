@@ -1,18 +1,24 @@
-import {
-  Nav,
-  Container,
-  Row,
-  Col,
-  Navbar,
-  Button,
-  Form,
-  FormControl,
-  Image,
-} from "react-bootstrap";
+import React, { useRef } from "react";
+import { Nav, Navbar, Button, Form, FormControl, Image } from "react-bootstrap";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
 import logo from "../static/Logo.png";
 
-const NavigationBar = () => {
+const NavigationBar = ({ setSearchedMovie }) => {
+  const movieRef = useRef("");
+
+  const { handleFilter, query } = props;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // console.log("eref", movieRef.current.value);
+    const { data } = await axios.get(
+      `http://www.omdbapi.com/?apikey=1fac6c28&t=${movieRef.current.value}`
+    );
+    // console.log("data", data);
+    setSearchedMovie(data);
+  };
+
   return (
     <>
       <Navbar
@@ -32,9 +38,6 @@ const NavigationBar = () => {
           <Nav.Link href="/contactus">Contact Us</Nav.Link>
           <Nav.Link to="/about" href="/about">
             About Us
-          </Nav.Link>
-          <Nav.Link to="/discuss-board" href="/discuss-board">
-            Discussion Board
           </Nav.Link>
         </Nav>
 
@@ -59,10 +62,27 @@ const NavigationBar = () => {
         </Nav>
 
         <Nav>
-          <Form inline>
+          <Form inline onSubmit={handleSubmit}>
             {" "}
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-danger">Search</Button>
+            <input
+              className="mx-auto"
+              type="text"
+              name="filterBar"
+              id="filterBar"
+              value={query}
+              onInput={handleFilter}
+              placeholder="Filter characters on page..."
+            />
+            <FormControl
+              ref={movieRef}
+              type="text"
+              placeholder="Search"
+              className="mr-sm-2"
+            />
+            <Button variant="outline-danger" type="submit">
+              Search
+              {/* Needs to redirect to homepage */}
+            </Button>
           </Form>
         </Nav>
       </Navbar>
