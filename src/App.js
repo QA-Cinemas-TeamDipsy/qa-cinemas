@@ -10,7 +10,7 @@ import axios from "axios";
 
 import "./App.css";
 import MovieInfo from "./Components/MovieInfo/MovieInfo";
-// import SearchedMovie from "./Components/SearchedMovie/SearchedMovie";
+import SearchedMovie from "./Components/SearchedMovie/SearchedMovie";
 
 export const MovieContext = createContext();
 
@@ -88,12 +88,12 @@ function App() {
             <Switch>
               <Route exact path="/">
                 <HomePage />
-                {/* {searchedMovie && (
+                {searchedMovie && (
                   <SearchedMovie searchedMovie={searchedMovie} />
-                )} */}
+                )}
               </Route>
 
-              <Route exact path="/ContactUs" component={ContactUs} />
+              <Route exact path="/ContactUs" component={ContactUs}></Route>
 
               <Route exact path="/movies">
                 <Movies
