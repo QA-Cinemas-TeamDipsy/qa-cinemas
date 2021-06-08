@@ -12,7 +12,7 @@
   }
   
   .pin {
-    display: flex;
+    display: grid;
     align-items: center;
     width: 180px;
     color: black;
@@ -20,10 +20,13 @@
   
   .pin-icon {
     font-size: 4rem;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    
   }
   
   .pin-text {
-    font-size: 1.5em;
+    font-size: 1rem;
   }
   
   @media screen and (min-width: 799px) {

@@ -1,35 +1,43 @@
 import GoogleMapReact from 'google-map-react'
-
 import CinemaPin from './CinemaPin';
 import './CinemaMap.css'
+
+import { Container } from 'react-bootstrap';
 //npm install --save google-map-react
 const CinemaMap = (location) => {
-    console.log(location)
 
     const { address, lat, lng } = location.location;
-    console.log(address)
-    console.log(lat)
-    console.log(lng)
-    return (
-        <>
-            <div className="map">
-                <div className="google-map">
-                    <GoogleMapReact
-                        bootstrapURLKeys={{ key: "AIzaSyCisLEBtwLnPP4J9jJPtkQ8G_WfrgWA434"}}
-                        defaultCenter={{lat: 51.3800776959354, lng: -0.1268782980874663}}
-                        defaultZoom={14}
-                    
-                    >
-                        <CinemaPin
-                            lat={51.3800776959354}
-                            lng={-0.1268782980874663}
-                            address={address}
-                        />
-                    </GoogleMapReact>
-                </div>
 
-            </div>
-         
+    const COMB_ADDRESS = `${address.lineOne}, ${address.lineTwo}, ${address.lineThree}, ${address.city}, ${address.county}, ${address.postCode}`
+
+        ;
+
+    return (
+
+        <>
+            <Container>
+                <div className="map">
+                    <div className="google-map">
+                        <GoogleMapReact
+                            
+                            bootstrapURLKeys={{ key: "AIzaSyCisLEBtwLnPP4J9jJPtkQ8G_WfrgWA434" }}
+                            defaultCenter={{ lat: lat, lng: lng }}
+                            defaultZoom={18}
+
+
+                        >
+
+                            <CinemaPin
+                                lat={lat}
+                                lng={lng}
+                                address={COMB_ADDRESS}
+                            />
+
+                        </GoogleMapReact>
+                    </div>
+
+                </div>
+            </Container>
         </>
     )
 }
