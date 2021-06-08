@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Form, Button, Col, Modal } from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom';
 
-const BookTickets = ({screeningDate, screeningTime, movieTitle}) => {
+const BookTickets = (props) => {
 
+    const {screeningDate, screeningTime, movieTitle} = props.location.state;
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
