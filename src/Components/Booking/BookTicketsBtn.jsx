@@ -2,12 +2,15 @@ import { Nav, Container, Row, Col, Navbar, Button, Form, FormControl, Image } fr
 import { Link, NavLink } from 'react-router-dom';
 
 const BookTicketsBtn = () => {
+    let movieTitle = "passed from BookTicketsBtn"
 
     return (
-        <Link to="/BookTickets">
-            <Button variant="outline-danger" >
-                Book Tickets
-            </Button>
+        <Link
+            to={{
+                pathname: "/MovieTimes",
+                state: { movieTitle }
+            }}>
+            <Button variant="outline-danger">Go To Tickets</Button>
         </Link>
     )
 }
