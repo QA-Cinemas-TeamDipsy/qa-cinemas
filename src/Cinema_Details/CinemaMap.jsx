@@ -1,4 +1,4 @@
-import GoogleMapReact from 'google-map-react'
+import GoogleMap from 'google-map-react'
 import CinemaPin from './CinemaPin';
 import './CinemaMap.css'
 
@@ -7,6 +7,8 @@ import { Container } from 'react-bootstrap';
 const CinemaMap = (location) => {
 
     const { address, lat, lng } = location.location;
+    console.log(location)
+    console.log(address)
 
     const COMB_ADDRESS = `${address.lineOne}, ${address.lineTwo}, ${address.lineThree}, ${address.city}, ${address.county}, ${address.postCode}`
 
@@ -18,7 +20,7 @@ const CinemaMap = (location) => {
             <Container>
                 <div className="map">
                     <div className="google-map">
-                        <GoogleMapReact
+                        <GoogleMap
                             
                             bootstrapURLKeys={{ key: "AIzaSyCisLEBtwLnPP4J9jJPtkQ8G_WfrgWA434" }}
                             defaultCenter={{ lat: lat, lng: lng }}
@@ -33,7 +35,7 @@ const CinemaMap = (location) => {
                                 address={COMB_ADDRESS}
                             />
 
-                        </GoogleMapReact>
+                        </GoogleMap>
                     </div>
 
                 </div>

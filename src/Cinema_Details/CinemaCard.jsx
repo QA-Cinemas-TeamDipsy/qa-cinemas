@@ -1,11 +1,14 @@
+import React from 'react';
 import { Card, Accordion, Button, Table, Container } from 'react-bootstrap'
 import CinemaMap from './CinemaMap'
+import CinemaModal from './CinemaModal';
 
 const CinemaCard = (cinema, id) => {
 
-  const { location, name, opening_times, type } = cinema.cinema;
+  const { directions,img,location, name, opening_times, type } = cinema.cinema;
+  
 
-  console.log(location)
+
 
   return (
     <>
@@ -68,14 +71,14 @@ const CinemaCard = (cinema, id) => {
 
             </Table>
             <br />
-            <h2>Getting Here</h2>
-            <Container className>
-            {
-              <CinemaMap location={location} />
+          
+            <CinemaModal name={name} location={location} directions={directions} image={img} />
 
-            }
-        
-            </Container>
+
+
+
+
+
           </Card.Body>
         </Accordion.Collapse>
       </Card>
