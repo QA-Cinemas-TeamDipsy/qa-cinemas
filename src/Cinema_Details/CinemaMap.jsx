@@ -15,7 +15,7 @@ const CinemaMap = (location) => {
             <div className="map">
                 <div className="google-map">
                     <GoogleMapReact
-                        bootstrapURLKeys={{ key: "AIzaSyCisLEBtwLnPP4J9jJPtkQ8G_WfrgWA434" }}
+                        bootstrapURLKeys={{ key: ""}}
                         defaultCenter={{lat: lat, lng: lng }}
                         defaultZoom={7}
                        
