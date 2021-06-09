@@ -22,9 +22,9 @@ const CinemaMap = (location) => {
                     <div className="google-map">
                         <GoogleMap
                             
-                            bootstrapURLKeys={{ key: "AIzaSyCisLEBtwLnPP4J9jJPtkQ8G_WfrgWA434" }}
+                            bootstrapURLKeys={{ key: "INSERT_API_KEY_HERE" }}
                             defaultCenter={{ lat: lat, lng: lng }}
-                            defaultZoom={18}
+                            defaultZoom={17}
 
 
                         >
