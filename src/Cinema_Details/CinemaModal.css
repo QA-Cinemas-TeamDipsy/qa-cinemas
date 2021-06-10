@@ -17,3 +17,18 @@
   border: 20px;
   padding-right: 33%;
 }
+.popover{
+  background-color: #343a40;
+  border-color: #dc3545;
+  border: 20px;
+
+}
+.popover-header {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border: 20px}
+
+.list-group-item {
+   color: whitesmoke;;
+  background-color: #343a40;
+}
