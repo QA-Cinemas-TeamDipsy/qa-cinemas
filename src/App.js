@@ -1,20 +1,20 @@
-import React, { useState, useEffect, createContext, useRef } from "react";
+import React, { useState, createContext } from "react";
 import HomePage from "./Components/HomePage";
 import AboutPage from "./Components/About/AboutPage";
 import NavigationBar from "./Components/NavigationBar/NavigationBar";
 import Movies from "./Components/MovieGallery/Movies";
 import ContactUs from "./Components/ContactUs/ContactUs";
+import Classifications from "./Components/Classifcations/Classifcations";
 import MovieTimes from "./Components/Booking/MovieTimes";
 import BookTickets from "./Components/Booking/BookTickets";
 import PaymentForm from "./Components/Booking/PaymentForm";
 import Footer from "./Components/Footer/Footer";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import axios from "axios";
+import Cinemas from "./Components/Cinema_Details/Cinemas"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
 
 import MovieInfo from "./Components/MovieInfo/MovieInfo";
-import SearchedMovie from "./Components/SearchedMovie/SearchedMovie";
 import DiscussionBoard from "./Components/DiscussionBoard/DiscussionBoard";
 
 
@@ -31,16 +31,6 @@ const App = () => {
   const [err, setError] = useState({});
 
   const [searchedMovie, setSearchedMovie] = useState({});
-
-  // // console.log("movie", searchedMovie);
-  // useEffect(() => {
-  //   const loggedInUser = localStorage.getItem("user");
-  //   console.log(Object.entries(loggedInUser));
-  //   if (loggedInUser) {
-  //     const foundUser = JSON.parse(loggedInUser);
-  //     setUser(foundUser);
-  //   }
-  // }, []);
 
   return (
     <>
@@ -61,7 +51,7 @@ const App = () => {
           </Route>
 
           <Route exact path="/ContactUs" component={ContactUs} />
-
+          <Route exact path="/cinemas" component={Cinemas} />
           <Route exact path="/movies">
             <Movies
               currentMovies={currentMovies}
@@ -76,16 +66,22 @@ const App = () => {
               <MovieTimes {...props} cinemaId={user.cinemaID} />
             )}
           ></Route>
-          <Route exact path="/BookTickets">
-            <BookTickets />
-          </Route>
-          <Route exact path="/Payments">
-            <PaymentForm />
-          </Route>
+          <Route exact path="/BookTickets" render={(props) => (
+            <BookTickets {...props} />
+          )}></Route>
+
+          <Route exact path="/Payments"
+          render={(props) => (
+            <PaymentForm {...props} />
+          )}></Route>
 
           <Route exact path="/about">
             <AboutPage />
           </Route>
+
+          <Route exact path="/Classifications" component={Classifications}>
+                <Classifications />
+              </Route>
 
           <Route exact path="/DiscussionBoard">
             <DiscussionBoard />
