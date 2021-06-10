@@ -1,0 +1,31 @@
+.formButton {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.modal-header {
+  background-color: #dc3545;
+  color: #343a40;
+  border-color: #dc3545;
+  border: 20px;
+}
+
+.modal-footer {
+  background-color: #343a40;
+  border-color: #343a40;
+  color: #dc3545;
+  border: 20px;
+  padding-right: 33%;
+}
+
+.modal-content {
+  border-color: #dc3545;
+  border: 20px;
+}
+
+.modal-body {
+  color: #dc3545;
+  background-color: #343a40;
+  border-color: #dc3545;
+  border: 20px;
+}
