@@ -1,0 +1,16 @@
+.modal-dialog {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  bottom: 0;
+  left: 70%;
+  z-index: 10040;
+  overflow-x: auto;
+  overflow-y: auto;
+  background-color: #343a40;
+}
+
+.modal-content {
+  background-color: #343a40;
+  /* max-height: fit-content; */
+}
