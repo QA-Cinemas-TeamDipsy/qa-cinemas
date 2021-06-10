@@ -1,71 +1,119 @@
 import React, { useState, useEffect, useContext } from "react";
 import { MovieContext } from "../../App";
-import { Button } from "react-bootstrap";
+import { Button, Container, Dropdown, DropdownButton } from "react-bootstrap";
 import { useParams } from "react-router";
+import { Link, NavLink } from "react-router-dom";
+
 import axios from "axios";
 
 const MovieInfo = (props) => {
-  const movies = useContext(MovieContext);
-  const [movieInfo, setMovieInfo] = useState({});
-  const { id } = useParams();
+  const movie = props.location.state.movie;
+  console.log(movie);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [cinemaList, setCinemaList] = useState([]);
+  const [error, setError] = useState(false);
 
-  console.log("movie", movies);
+  const [currentCinema, setCurrentCinema] = useState("Cinema");
+
+  const handleCinemaChange = (e) => {
+    console.log(e.target.value);
+    setCurrentCinema(e.target.value);
+  };
+
   useEffect(() => {
-    async function fetchData() {
-      const { data } = await axios.get(
-        `http://www.omdbapi.com/?apikey=1fac6c28&i=${id}`
-      );
-      setMovieInfo(data);
-    }
-    fetchData();
-    console.log(id);
+    axios
+      .get("http://localhost:8080/api/cinemas/getAllNames")
+      .then((res) => {
+        console.log(res.data);
+        setIsLoaded(true);
+        setCinemaList(res.data);
+      })
+      .catch((err) => {
+        setIsLoaded(err);
+        setError(err);
+        setCinemaList(["No cinema"]);
+      });
   }, []);
-  console.log("movieInfo", movieInfo);
+
   return (
     <>
-      {movieInfo && (
-        <div
-          style={{
-            width: "60%",
-            margin: "auto",
-          }}
-        >
-          <h2>{movieInfo.Title}</h2>
-          <img src={movieInfo.Poster} alt="" />
-          <br />
+      <Container>
+        {
           <div
             style={{
-              display: "flex",
-              justifyContent: "centre",
-              flexDirection: "column",
+              width: "60%",
+              margin: "auto",
             }}
           >
-            <h4 className="runtime">
-              Genre: <span>{movieInfo.Genre}</span>
-            </h4>
-
-            <h4 style={{ margin: 8, marginLeft: 0, color: "#C82333" }}>
-              Description
-            </h4>
-            <p style={{ marginLeft: 8 }}>{movieInfo.Plot}</p>
-            <h4 className="runtime">
-              Runtime: <span>{movieInfo.Runtime}</span>
-            </h4>
-            <h4 className="runtime">
-              Actors: <span style={{ fontSize: 18 }}>{movieInfo.Actors}</span>
-            </h4>
+            <h2>{movie.title}</h2>
+            <img src={movie.poster} alt="" />
             <br />
-            <h4 className="runtime">
-              Film Rating <span>{movieInfo.Rating}</span>
+            <br />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "centre",
+                flexDirection: "column",
+              }}
+            >
               <h4 className="runtime">
-                Film Awards <span>{movieInfo.Awards} </span>
+                Genre: <span>{movie.genres.join(", ")}</span>
               </h4>
-            </h4>
-          </div>
-        </div>
-      )}
 
-      <Button variant="outline-danger">Book Tickets</Button>
+              <h4 style={{ margin: 8, marginLeft: 0, color: "#C82333" }}>
+                Description
+              </h4>
+              <p style={{ marginLeft: 8 }}>{movie.plot}</p>
+              <h4 className="runtime">
+                Runtime: <span>{movie.runtime}</span>
+              </h4>
+              <h4 className="runtime">
+                Actors:{" "}
+                <span style={{ fontSize: 18 }}>{movie.actors.join(", ")}</span>
+              </h4>
+              <br />
+              <h4 className="runtime">
+                Film Rating <span>{movie.imdbRating}/10</span>
+                <h4 className="runtime">
+                  Film Awards <span>{movie.awards} </span>
+                </h4>
+              </h4>
+              <br />
+
+              <Link
+                to={{
+                  pathname: "/MovieTimes",
+                  state: { movieTitle: movie.title, movieId: movie["_id"] },
+                }}
+              >
+                <Button variant="outline-danger">Look at times</Button>
+              </Link>
+              <br />
+              <DropdownButton
+                id="dropdown-cinemalist-button"
+                title={currentCinema}
+              >
+                {cinemaList.map((cinema) => (
+                  <Dropdown.Item
+                    as="button"
+                    onClick={handleCinemaChange}
+                    value={cinema.name}
+                  >
+                    {cinema.name}
+                  </Dropdown.Item>
+                ))}
+              </DropdownButton>
+              <br />
+
+              <h6>See what people are saying about {movie.title} </h6>
+
+              <Button variant="outline-danger" href="/discussionboard">
+                Discussion Board
+              </Button>
+            </div>
+          </div>
+        }
+      </Container>
     </>
   );
 };
