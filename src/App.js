@@ -12,11 +12,14 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
 
 import "./App.css";
+
 import MovieInfo from "./Components/MovieInfo/MovieInfo";
 import SearchedMovie from "./Components/SearchedMovie/SearchedMovie";
 import DiscussionBoard from "./Components/DiscussionBoard/DiscussionBoard";
 
+
 export const MovieContext = createContext();
+
 
 const App = () => {
   const [user, setUser] = useState({});
