@@ -5,7 +5,6 @@ import axios from "axios";
 import "./Banner.css";
 
 const Banner = (props) => {
-  // const { movieProps } = props;
 
   const [movies, setMovies] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -34,9 +33,6 @@ const Banner = (props) => {
               <Col sm>
                 <Image src={movie.poster} />
               </Col>
-              {/* <Carousel.Caption id="caption">
-                <h2>Now Showing</h2>
-              </Carousel.Caption> */}
 
               <Col sm>
                 <Carousel.Caption id="caption">
@@ -73,7 +69,7 @@ const Banner = (props) => {
                   >
                     <Button
                       variant="outline-danger"
-                      disabled={movie.status.upcoming}
+                      disabled={true}
                     >
                       Go To Tickets
                     </Button>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Tab, Sonnet } from "react-bootstrap";
+import { Tabs, Tab } from "react-bootstrap";
 import CreatePosts from "./CreatePost";
 import Posts from "./Posts";
 
@@ -9,13 +9,11 @@ const DiscussionBoard = () => {
 
   const handleCreatePost = (post) => {
     const postId = posts.length > 0 ? posts[posts.length - 1].id + 1 : 1;
-    //Assign Id to the post
+
     post.id = postId;
 
-    // Set posts coming frm server
     setPosts([...posts, post]);
 
-    // Focus on Post Tab
     setActiveTab("posts");
   };
 

@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Form, Button, Container, Alert, Dropdown } from "react-bootstrap";
+import { Form, Button, Container } from "react-bootstrap";
 import * as Utils from "../utils/prof-filter-api";
 
 const CreatePosts = ({ handleCreatePost }) => {
+  const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [movie, setMovie] = useState("");
   const [rating, setRating] = useState("");
@@ -10,20 +11,17 @@ const CreatePosts = ({ handleCreatePost }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validation
     if (title.length <= 0 && comment.length <= 0) {
       return alert("Please fill up the required fields");
     }
 
-    // filter Profanity
     const filteredComment = await Utils.profanityFilter(comment);
 
-    const postData = { title, movie, rating, comment: filteredComment };
+    const postData = { name, title, movie, rating, comment: filteredComment };
 
-    // Pass the post Data to `handleCreatePost` props;
     handleCreatePost(postData);
 
-    // Reset the fields
+    setName("");
     setTitle("");
     setMovie("");
     setRating("");
@@ -32,14 +30,29 @@ const CreatePosts = ({ handleCreatePost }) => {
   return (
     <>
       <Container>
-        {/* Surround this code around if/else statement depending on if user is logged in */}
-        <h4>
-          <em> Please login to create a post</em>
-        </h4>
+ 
 
         <br />
 
         <Form onSubmit={handleSubmit}>
+
+        <Form.Group className="mb-3" controlId="Topic Title" required>
+
+       
+            <Form.Label>
+              <h3>Enter your name</h3>
+            </Form.Label>
+
+            <Form.Text className="text-muted">Enter your display name*</Form.Text>
+            <Form.Control
+              type="name"
+              value={name}
+              autocomplete="off"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </Form.Group>
+
+
           <Form.Group className="mb-3" controlId="Topic Title" required>
             <Form.Label>
               <h3>Topic Title:</h3>
@@ -48,23 +61,25 @@ const CreatePosts = ({ handleCreatePost }) => {
             <Form.Control
               type="title"
               value={title}
+              autocomplete="off"
               onChange={(e) => setTitle(e.target.value)}
             />
           </Form.Group>
 
           <br />
 
-          <Form.Group className="mb-3" controlId="Movie Name">
+          <Form.Group className="mb-3" controlId="Movie Name" >
             <Form.Label>
               <h3>Movie Name:</h3>
             </Form.Label>
-            <Form.Text className="text-muted">
+            <Form.Text className="text-muted" >
               Enter a name of the movie if you wish to review a specific film
             </Form.Text>
             <Form.Control
               type="movie-name"
               value={movie}
               onChange={(e) => setMovie(e.target.value)}
+              autocomplete="off"
             />
           </Form.Group>
 

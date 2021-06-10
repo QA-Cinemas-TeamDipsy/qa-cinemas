@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Image, Col, Button, Modal, Form, FormControl } from "react-bootstrap";
+import { Col, Modal, Form, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./ModalStyle.css";
 
@@ -54,27 +54,6 @@ const SearchedMovie = ({ showModal, updateState, searchedMovie }) => {
       return <h4>{"No results found"}</h4>;
     }
   };
-  // const movieRef = useRef("");
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const { data } = await axios.get(
-  //     // `http://www.omdbapi.com/?apikey=1fac6c28&s=${movieRef.current.value}&plot=full`
-  //     `http://localhost:8080/api/movies/getAll`
-  //   );
-  //   console.log(data);
-  //   setMovies(data.Search);
-  // };
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const { data } = await axios.get(
-  //       `http://www.omdbapi.com/?apikey=1fac6c28&i=${id}`
-  //     );
-  //     setMovieInfo(data);
-  //   }
-  //   fetchData();
-  //   console.log(id);
-  // }, []);
 
   return (
     <Modal

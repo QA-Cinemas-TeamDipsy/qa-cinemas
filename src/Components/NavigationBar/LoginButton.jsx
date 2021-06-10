@@ -17,7 +17,7 @@ const LoginButton = (props) => {
         style={{ borderColor: "#343A40", border: "10px" }}
         onClick={handleShowLogModal}
       >
-        <img src="https://img.icons8.com/android/24/000000/login-rounded-right.png" />
+        <img src="https://img.icons8.com/android/24/000000/login-rounded-right.png" alt="" />
         Login
       </Button>
       <UserLogin

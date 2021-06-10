@@ -1,4 +1,4 @@
-.modal-dialog {
+.modal-dialog-scrollable {
   position: absolute;
   top: 50px;
   right: 0;
@@ -12,5 +12,4 @@
 
 .modal-content {
   background-color: #343a40;
-  /* max-height: fit-content; */
 }

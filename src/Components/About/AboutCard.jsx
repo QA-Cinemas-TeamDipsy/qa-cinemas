@@ -1,4 +1,4 @@
-import {Card,ListGroup,ListGroupItem,CardSubtitle} from 'react-bootstrap'
+import {Card,ListGroup,} from 'react-bootstrap'
 
 const AboutCard = (props) => {
     const { name, surname ,age, jobTitle, hobbies, email, img, twitter } = props.data;

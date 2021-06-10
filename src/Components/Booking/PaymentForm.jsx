@@ -1,12 +1,17 @@
-import { Alert, Form, Button, Col, Modal, Container } from "react-bootstrap";
+import { Alert, Form, Button, Col, Container } from "react-bootstrap";
 import { useState } from "react";
 import axios from "axios";
 
 const PaymentForm = (props) => {
   const [showErr, setShowErr] = useState(false);
   const [show, setShow] = useState(false);
-
   const cost = props.location.state.totalTicketsPrice;
+  const adultTickets = props.location.state.adultTickets;
+  const childTickets = props.location.state.childTickets;
+  const seniorTickets = props.location.state.seniorTickets;
+  const screeningDate = props.location.state.screeningDate;
+  const screeningTime = props.location.state.screeningTime;
+  const movieTitle = props.location.state.movieTitle;
   const [userEmail, setUserEmail] = useState("");
   const [cardName, setCardName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
@@ -31,29 +36,50 @@ const PaymentForm = (props) => {
       country: country,
       postal_code: postCode,
     };
-    console.log(obj);
+    const objForAxios = {
+      amount: cost * 100,
+      email: userEmail,
+      card_number: cardNumber,
+      card_exp_month: expMonth,
+      card_exp_year: expYear,
+      card_cvc: cvc,
+      card_name: cardName,
+      country: country,
+      postal_code: postCode,
+      adult_tickets: adultTickets,
+      child_tickets: childTickets,
+      senior_tickets: seniorTickets,
+      movie_day: screeningDate,
+      movie_time: screeningTime,
+      movie_title: movieTitle,
+    };
+
     axios
       .post("http://localhost:8080/api/createCharge", obj)
-      .then((res) => res)
-      .then(
-        (result) => {
-          console.log("successfully Added " + result);
-          setUserEmail("");
-          setCardNumber("");
-          setCardName("");
-          setExpMonth("");
-          setExpYear("2021");
-          setCountry("");
-          setPostCode("");
-          setCVC("000");
-          setShow(true);
-        },
-        (error) => {
-          console.error(error);
-          setShowErr(true);
-        }
-      );
-  };
+      .then((res) => {
+        console.log(res);
+        axios.post("http://localhost:8080/api/booking/", objForAxios)
+          .then((secondRes) => {
+            console.log(secondRes)
+            setUserEmail("");
+            setCardNumber("");
+            setCardName("");
+            setExpMonth("");
+            setExpYear("2021");
+            setCountry("");
+            setPostCode("");
+            setCVC("000");
+            setShow(true);
+          }).catch((secondErr) => {
+            console.error(secondErr);
+          })
+      })
+      .catch((err) => {
+        console.error(err);
+        setShowErr(true);
+      })
+  }
+
 
   return (
     <>

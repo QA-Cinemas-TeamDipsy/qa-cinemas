@@ -1,11 +1,18 @@
 import { useState } from "react";
-import { Form, Button, Col, Modal, Container } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Form, Button, Col, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Seating from "../Seating/Seating";
 
 const BookTickets = (props) => {
   console.log(props);
-  const { screeningDate, screeningTime, movieTitle } = props.location.state;
+  const { screeningDate, movieTitle } = props.location.state;
+
+  const screeningHours = props.location.state.screeningTime.hours;
+  const screeningMinutes = props.location.state.screeningTime.minutes;
+
+  const zeroPad = (num, places) => String(num).padStart(places, "0");
+
+  const screeningTime = `${screeningHours}:${zeroPad(screeningMinutes, 2)}`;
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -13,16 +20,6 @@ const BookTickets = (props) => {
   const adultTicketPrice = 8;
   const childTicketPrice = 4;
   const seniorTicketPrice = 6;
-
-  // const [tickets, setTickets] = useState({
-  //   adult: 0,
-  //   senior: 0,
-  //   children: 0,
-  // });
-
-  // const handleChange = (field) => {
-  //   return (e) => setName((name) => ({ ...name, [field]: e.target.value }));
-  // };
 
   const [adultTickets, setAdultTickets] = useState(0);
   const [adultTicketsCost, setAdultTicketsCost] = useState(0);
@@ -41,7 +38,6 @@ const BookTickets = (props) => {
       e.target.value * adultTicketPrice + childTicketsCost + seniorTicketsCost
     );
 
-    // setTickets({ adult: e.target.value });
   };
   const childTicketUpdate = (e) => {
     setChildTickets(e.target.value);
@@ -139,7 +135,7 @@ const BookTickets = (props) => {
       <Link
         to={{
           pathname: "/Payments",
-          state: { totalTicketsPrice },
+          state: { totalTicketsPrice, screeningDate, screeningTime, movieTitle, adultTickets, childTickets, seniorTickets },
         }}
       >
         <Button variant="outline-danger">Go To Checkout</Button>

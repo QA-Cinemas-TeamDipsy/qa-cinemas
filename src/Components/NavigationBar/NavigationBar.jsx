@@ -1,12 +1,7 @@
-import React, { useRef } from "react";
-import { Nav, Navbar, Button, Form, FormControl, Image } from "react-bootstrap";
-import axios from "axios";
-import { NavLink } from "react-router-dom";
+import React from "react";
+import { Nav, Navbar, Button, Image } from "react-bootstrap";
 import SearchedMovie from "../SearchedMovie/SearchedMovie.jsx";
-import UserRegistration from "../SignUp/UserRegistration";
-import UserLogin from "../SignUp/UserLogin";
-import Logo from "../static/Logo.png";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import RegisterButton from "./RegisterButton";
@@ -34,22 +29,30 @@ const NavigationBar = ({ setSearchedMovie, user, setUser }) => {
         expand="lg"
       >
         <Navbar.Brand to="/" href="/">
-          <Image src={Logo} alt="logo" width={150} />
+          <Image src="https://i.ibb.co/NNcpH87/Logo-Final.png" alt="logo" width={250} />
+       
+          
         </Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/movies">What's On</Nav.Link>
 
           <Nav.Link href="/cinemas">Cinemas</Nav.Link>
 
+          <Nav.Link to="/Classifications" href="/Classifications">
+            Classifications
+          </Nav.Link>
+
           <Nav.Link to="/DiscussionBoard" href="/DiscussionBoard">
             Discussion Board
           </Nav.Link>
 
-          <Nav.Link href="/contactus">Contact Us</Nav.Link>
-
           <Nav.Link to="/about" href="/about">
             About Us
           </Nav.Link>
+
+          <Nav.Link href="/contactus">Contact Us</Nav.Link>
+
+       
         </Nav>
 
         {isLoggedIn ? (
@@ -76,7 +79,7 @@ const NavigationBar = ({ setSearchedMovie, user, setUser }) => {
             type="submit"
             onClick={handleShowSearchModal}
           >
-            <img src="https://img.icons8.com/metro/26/000000/search.png" />
+            <img src="https://img.icons8.com/metro/26/000000/search.png" alt="" />
           </Button>
         </Nav>
       </Navbar>

@@ -6,3 +6,8 @@
   width: 50%;
   justify-content: space-around;
 }
+
+.btn-primary{
+  background-color: #dc3545;
+  border-color: #343a40;
+}

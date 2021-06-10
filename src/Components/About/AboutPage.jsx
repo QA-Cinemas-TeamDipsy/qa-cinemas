@@ -1,6 +1,7 @@
 import details from "../static/TeamDetails.json"
 import AboutCard from "./AboutCard"
-import { CardDeck, Container } from "react-bootstrap"
+import AboutPage from "./AboutPage.css"
+import { CardDeck, Container, Image } from "react-bootstrap"
 
 const About = () => {
     return (
@@ -11,20 +12,17 @@ const About = () => {
             <Container>
                 <CardDeck>
                 {
-
                     details.map((data, id) => (
-
-                        
                             <AboutCard key={id} data={data} />
                          ))
-
                 }
                 </CardDeck>
-
+                <Image
+                    src={"https://i.ibb.co/NNcpH87/Logo-Final.png"}
+                    alt="QA Cinema Logo"
+                    className="center"
+                />
             </Container>
-          
-            
-
         </>
     )
 

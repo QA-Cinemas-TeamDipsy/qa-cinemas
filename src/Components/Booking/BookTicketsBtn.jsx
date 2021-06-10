@@ -1,15 +1,5 @@
-import {
-  Nav,
-  Container,
-  Row,
-  Col,
-  Navbar,
-  Button,
-  Form,
-  FormControl,
-  Image,
-} from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const BookTicketsBtn = () => {
   let movieTitle = "passed from BookTicketsBtn";

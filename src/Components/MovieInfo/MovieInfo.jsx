@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useContext } from "react";
-import { MovieContext } from "../../App";
+import React, { useState, useEffect } from "react";
 import { Button, Container, Dropdown, DropdownButton } from "react-bootstrap";
-import { useParams } from "react-router";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -92,6 +90,7 @@ const MovieInfo = (props) => {
               <DropdownButton
                 id="dropdown-cinemalist-button"
                 title={currentCinema}
+
               >
                 {cinemaList.map((cinema) => (
                   <Dropdown.Item

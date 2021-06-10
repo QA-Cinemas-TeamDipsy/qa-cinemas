@@ -1,7 +1,4 @@
-//$ npm install emailjs-com --save
-// this needs to be run for the email api
-import emailjs from 'emailjs-com';
-import { Button, Form, Row, Container, Col } from 'react-bootstrap'
+import { Button, Row, Container, Col } from 'react-bootstrap'
 import ContactUsForm from './ContactUsForm'
 
 const ContactUs = () => {

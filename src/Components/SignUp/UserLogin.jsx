@@ -20,7 +20,7 @@ const UserLogin = (props) => {
         console.log(res.data);
         updateUser(res.data);
         updateIsLoggedIn(true);
-        // localStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem("user", res.data);
       })
       .catch((err) => {
         console.error(err);
