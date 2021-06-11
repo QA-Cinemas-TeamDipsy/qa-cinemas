@@ -1,0 +1,95 @@
+DAY1
+- Tasks delegated and project set up including Jira and Git.
+- User stories, wireframes and risk assessment started.
+- Research into similar projects for some direction to start the project.
+- Went over user stories as a group and updated them.
+- Began to decide on how the search functionality would work.
+- ERDs started, guided us towards how we would store and load in data (via APIs and DBs etc)
+- Added user stories to relevant epics.
+- Added acceptance criteria to user stories where required.
+- Looked at established cinema's websites to figure out layout.
+- Laid out first scrum and decided on tasks for the rest of the week.
+- Forked and cloned repository from GitHub to work on as tasks are assigned.
+- Updated risk assessment and ERD.
+- Added story points to user stories in first sprint.
+- Started to assign MoSCoW to stories.
+- Linked Jira to project to allowe for smart commits.
+- Made basic homepage components.
+- Decided to implement React-Bootstrap since its easier to use than ReactStrap.
+- Began designing navbar.
+
+
+DAY2
+- Cleaned up homepage and implemented some features for the page (template).
+- Discussed a working method to use version control.
+- Encountered server issues with GitHub so had to resort to LiveShare to work safely and not risk many merge conflicts and errros.
+- Decided on a banner style for the webpage.
+- Decided on the movie API to use since it had 1000 requests a day for free which was enough.
+- Installed react-router-dom
+- Installed emailjs-com
+- Footer designed and implemented
+- Coming accross issues with doing multiple axios requests for the banner posters.
+- Created social media accounts to link into the footer.
+- Fixed issues regarding axios requests and sending emails from the website to the dedicated QACinema email.
+- Added a functioning about us page.
+- Fixed issues regarding header and footer.
+- Updated the banner and links
+- Completed peer programming, tasks assigned.
+
+
+DAY3
+- Discussed next steps such as databases required and schemas
+- Stand up meeting held to assign tasks for the day.
+- Cinema gallery pages, secure payments, sql data and mongo data began to be handled.
+- Issues regarding the version of mySQL installed for mysql2 and importer. (decided on mysql2)
+- Encountered issues using mySQL, decided to work only with mongoose.
+- Issues loading images for gallery.
+- Image gallery base work implemented.
+- Payment form completed.
+
+
+DAY4
+- Completed login and register functionalities.
+- Began CRUD functionalities for the application.
+- Completed Image gallery.
+- Collaborated to cleanup image gallery. (Decreading load times, Styling)
+- Brought all backend components together.
+
+
+DAY5
+- Standup decided where would be best to have our requests live (backend or frontend)
+- Finished minor fixes before pushing and merging work
+- Tasks from week one that were not in the first Sprint have been marked as completed.
+- Started trying to implement a cleaner search functionality.
+- Completed all back end.
+- Connected front end and back end to allow for completion of viewing times and search functions.
+
+DAY6
+- Pushed all individual work up to github to reorganise tasks.
+- Noticed that React Bootstrap had a newer version available however we had already implemented an earlier version.
+- Cleanup of data requests so there is as little as possible.
+- Loaded both requests using promise.all rather than multiple axios.get requests.
+- Encountered internet issues  which lead to halt in workflow.
+- GitHub was down this day so we worked as a group on VSC LiveShare.
+- Able to now create a user.
+- Set tasks for the next day, complete log in, orders and search functionality. Yet to implement map and seating.
+
+
+DAY7
+- Considering whether to hard code places to go since we are short on time however it would not be ideal for scalability.
+- Decided to add sign out function and if there is time add an update user function.
+- Completed base search functionality, need to switch request to our own database from an API.
+- As a group decided we needed to manage data transfer from front end to back end.
+- Redesigned logo to fit colour scheme more appropriately.
+- Search fucntionality completed and working smoothly.
+- Began handling the change of state when a user logs in.
+- New issues found with state of being logged in when page refreshes.
+- Issue with choosing booking times.
+- Issue with logging in without a password.
+
+
+DAY8
+- Still having some issues with servers disconnecting.
+- Aim for today is to prepare for a final deliverable MVP.
+- Attempt to fix not staying logged in on refresh bug.
+- Fixed issues following from day 6 regarding GitHub, all work pushed.
