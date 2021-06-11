@@ -1,13 +1,20 @@
 import { Button, Row, Container, Col } from 'react-bootstrap'
 import ContactUsForm from './ContactUsForm'
+import CheckoutForm from "../Stripe/CheckoutForm"
+import { Elements, CardElement } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import PaymentForm from '../Booking/PaymentForm';
 
 const ContactUs = () => {
-
+    const stripePromise = loadStripe("pk_test_51Ixvo4AlfwidcJXzEk6Xjy2PbREpIBDjou952mvWJwn5ZIM7sBXFHJ4YOQAEUMMxf3lQCsnRtXC8RnQfAkb0NRwJ00pJ9LsJu3")
 
     return (
         <>
             <div className="text-center">
                 <h1>Contact Us</h1>
+                {/* <Elements stripe={stripePromise}>
+            <PaymentForm />
+        </Elements> */}
                 <ContactUsForm />
                 <br />
                 <Container>

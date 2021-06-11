@@ -13,6 +13,11 @@ import Cinemas from "./Components/Cinema_Details/Cinemas"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
+import Classifications from "./Components/Classifications/Classifications";
+import BookTicketsBtn from "./Components/Booking/BookTicketsBtn";
+import BookTickets from "./Components/Booking/BookTickets";
+import MovieTimes from "./Components/Booking/MovieTimes";
+import PaymentForm from "./Components/Booking/PaymentForm";
 
 import MovieInfo from "./Components/MovieInfo/MovieInfo";
 import DiscussionBoard from "./Components/DiscussionBoard/DiscussionBoard";
@@ -41,9 +46,9 @@ const App = () => {
             user={user}
             setUser={setUser}
           />
-        </Route>
-
-        <br />
+    <Router>
+      <NavigationBar />
+      <br />
 
         <Switch>
           <Route exact path="/">
